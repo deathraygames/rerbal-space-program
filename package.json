@@ -1,0 +1,34 @@
+{
+  "name": "rerbal-space-program",
+  "version": "0.1.0",
+  "description": "Demake of KSP as a Roguelike",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "serve": "npx http-server",
+    "rollup": "rollup ./src/game.js --file ./build/game_bundle.js --format iife",
+    "build": "npm run rollup",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/deathraygames/rerbal-space-program"
+  },
+  "keywords": [
+    "game",
+    "space",
+    "rockets",
+    "roguelike",
+    "7DRL"
+  ],
+  "author": "Luke Nickerson",
+  "license": "MIT",
+  "dependencies": {
+    "keyboard-commander": "github:rocket-boots/keyboard-commander"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "rocket-boots-eslint": "github:rocket-boots/rocket-boots-eslint",
+    "rollup": "^3.18.0"
+  }
+}
