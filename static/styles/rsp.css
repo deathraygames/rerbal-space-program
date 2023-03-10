@@ -1,23 +1,369 @@
+@font-face {
+	font-family: "AppleII";
+	src: url("../fonts/AppleII.ttf");
+}
+
 body {
-	background: #101019;
+	background: #161616;
 	color: white;
 	text-align: center;
 	padding: 0;
 	margin: 0;
 	font-family: 'Courier New', Courier, monospace;
 }
+.apple-ii-font {
+	font-family: 'AppleII', 'Courier New', Courier, monospace;
+}
 
 main {
-	display: flex;
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	/* display: flex;
 	flex-direction: column;
 	align-items: stretch;
 	align-content: stretch;
-	max-width: 40em;
 	height: 100vh;
 	min-height: 90vh;
-	margin: 0 auto;
+	margin: 0 auto; */
 	/* border-left: solid 1px #333;
 	border-right: solid 1px #333; */
 	text-align: left;
 	--spacing: 2vmin;
+}
+
+
+/* Page Sections */
+
+.page {
+	display: flex;
+	flex-direction: column;
+	/* border: solid 1px rgba(255,255,255, 0.3); */
+	/* padding: var(--spacing); */
+	/* height: inherit;
+	width: inherit; */
+	box-sizing: border-box;
+}
+.page-body {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+.page section {
+	/* border: solid 1px rgba(255,255,255, 0.1); */
+	flex-grow: 1;
+}
+
+/* ---- Home ---- */
+
+#home-page {
+	padding: 8vmin;
+}
+
+.home-title {
+	color: #dd4444;
+	font-size: 2.4vmin;
+}
+
+.home-intro,
+.home-details {
+	padding: 1em 0;
+	margin: 1em 0;
+}
+.home-details {
+	opacity: 0.5;
+}
+
+/* ---- Space Center ---- */
+
+.building {
+	display: block;
+	padding: 2em 1em;
+	border: solid 1px transparent;
+}
+
+#building-list {
+	width: 60vw;
+}
+
+.building-selected {
+	/* border: solid 1px rgba(255, 255, 255, 0.2); */
+	position: relative;
+}
+.building-selected::before {
+	display: inline-block;
+	content: ">>";
+	position: absolute;
+	left: -2em;
+}
+.building-selected::after {
+	display: inline-block;
+	content: "<<";
+	position: absolute;
+	right: -2em;
+}
+
+.hide {
+	display: none;
+}
+
+[data-command]:hover {
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.key {
+	color: cyan;
+}
+
+.button {
+	padding: 1em;
+	user-select: none;
+}
+
+/* ---- Research ---- */
+
+#research-parts-list {
+	padding: 2em;
+}
+#research-parts-list > div {
+	margin: 1em 0;
+}
+#research-parts-list dd {
+	font-size: 80%;
+}
+
+
+/* --- VAB --- */
+
+#vab-rocket {
+	/* border: solid 1px white; */
+	margin: 0 2vmin;
+}
+
+#vab-parts {
+	padding: 1em;
+}
+
+#vab-parts-list {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.vab-part {
+	display: block;
+	padding: 1em;
+}
+
+.vab-part-locked {
+	opacity: 0.5;
+}
+
+.vab-part-picked-up {
+	color: yellowgreen;
+}
+
+.vab-rocket-container {
+	display: flex;
+}
+
+#vab-rocket-list {
+	display: block;
+	margin: 0 1em 0 0;
+	padding: 0;
+}
+
+.rocket-row {
+	display: block;
+	margin: 0;
+	padding: 0;
+	min-width: 6em;
+	min-height: 4vmax;
+	border: solid 1px rgba(255,255,255, 0.2);
+}
+
+#vab-rocket-svg {
+	width: 100px;
+	height: 50vh;
+	stroke: #2222cc;
+	stroke-width: 2px;
+	fill: #000022;
+	background: #000033;
+}
+
+/* --- Flight --- */
+
+#flight-rocket-svg {
+	stroke: #666;
+	stroke-width: 2px;
+	fill: #333;
+	margin: 0 auto;
+}
+
+#flight-rocket {
+	position: absolute;
+	z-index: 2;
+	top: 3em;
+	left: 0;
+	height: calc(94vh - 2em);
+	width: 30vmin;
+	background: rgba(0,0,0,0.5);
+}
+
+.flight-fuel-text {
+	font-size: 12px;
+}
+.flight-fuel-pie-bg {
+	stroke: #111;
+}
+.flight-fuel-pie {
+	stroke: #666;
+}
+
+#flight-progress {
+	height: 94vh;
+	/* width: 30vmin; */
+	width: 90vw;
+	position: relative;
+}
+
+#flight-info {
+	position: absolute;
+	z-index: 2;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	width: 30vmin;
+	padding: 1em;
+}
+#flight-info dt,
+#flight-info dd {
+	display: inline-block;
+}
+
+#flight-map-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+}
+
+#flight-map-svg {
+	/* border: solid 1px rgba(255,255,255, 0.1); */
+}
+
+#flight-altitude {
+	position: absolute;
+	top: 0;
+	left: 35vw;
+	width: 30vw;
+	text-align: center;
+}
+#flight-time {
+	position: absolute;
+	z-index: 3;
+	left: 10vw;
+}
+
+#planet-circle {
+	stroke: #00aaaa;
+	fill: #112222;
+	stroke-width: 200px;
+}
+#atmosphere-circle {
+	stroke: #666;
+	fill: #111;
+	stroke-width: 100px;
+}
+
+#flight-telemetry-container {
+	position: absolute;
+	bottom: 0;
+	left: 35vw;
+	width: 30vw;
+}
+
+#flight-telemetry-svg {
+	height: 30vmin;
+	stroke: #50507c;
+	fill: #000022;
+}
+
+#navball-group {
+	font-size: 8px;
+}
+#navball-ground-text {
+	transform: translate(-1.9em, 2em);
+}
+
+.path-circle {
+	fill: #888;
+}
+
+.trajectory-circle {
+	fill: #1d6985;
+}
+
+.part-active {
+	stroke: yellowgreen;
+}
+
+.sky {
+	stroke: #1d6985;
+}
+.ground {
+	stroke: #784918;
+}
+
+#navball-velocity-arrow {
+	stroke: #fff;
+}
+#navball-thrust-arrow {
+	stroke: yellow;
+}
+
+#flight-telemetry-rotation {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+}
+#flight-telemetry-speed {
+	position: absolute;
+	top: 0;
+	text-align: center;
+	width: 100%;
+}
+
+#flight-map-rocket-group {
+	stroke: #fff;
+	fill: #fff;
+}
+
+svg {
+	height: 100%;
+	width: 100%;
+}
+
+#flight-command-list {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+#flight-command-list > li {
+	padding: 1.5em 0;
+}
+
+#flight-destroyed {
+	background: #550000;
+	color: #ff1111;
+	font-size: 120%;
+	padding: 1em;
+	display: none;
 }

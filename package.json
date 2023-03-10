@@ -1,13 +1,14 @@
 {
   "name": "rerbal-space-program",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Demake of KSP as a Roguelike",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "serve": "npx http-server",
-    "rollup": "rollup ./src/game.js --file ./build/game_bundle.js --format iife",
+    "rollup": "rollup --config rollup.config.mjs",
     "build": "npm run rollup",
+    "watch": "rollup --config rollup.config.mjs -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,11 +25,13 @@
   "author": "Luke Nickerson",
   "license": "MIT",
   "dependencies": {
-    "keyboard-commander": "github:rocket-boots/keyboard-commander"
+    "keyboard-commander": "github:rocket-boots/keyboard-commander",
+    "roguelike-fonts": "github:rocket-boots/roguelike-fonts"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
     "rocket-boots-eslint": "github:rocket-boots/rocket-boots-eslint",
-    "rollup": "^3.18.0"
+    "rollup": "^3.18.0",
+    "rollup-plugin-copy": "^3.4.0"
   }
 }

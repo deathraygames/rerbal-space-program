@@ -11,7 +11,195 @@
 	</head>
 	<body>
 		<main>
+			<article class="page" id="home-page">
+				<header class="home-title">
+<pre>
+  ______          __          __                       
+  |  __ \         | |         | |                     
+  | |__) |___ _ __| |__   __ _| | 
+  |  _  // _ \ '__| '_ \ / _` | | 
+  | | \ \  __/ |  | |_) | (_| | |  
+  |_|  \_\___|_|  |_.__/ \__,_|_|_ 
+    ____                    ___                             
+   / __/__  ___ ________   / _ \_______  ___ ________ ___ _ 
+  _\ \/ _ \/ _ `/ __/ -_) / ___/ __/ _ \/ _ `/ __/ _ `/  ' \
+ /___/ .__/\_,_/\__/\__/ /_/  /_/  \___/\_, /_/  \_,_/_/_/_/
+    /_/                                /___/        
+ 
+                                      version 1.0 ☿ "Mercury"
+</pre>
+<!-- 	Big
+	Chunky
+	Italic
+	Larry 3d
+	small slant
+	Short from https://www.coolgenerator.com/ascii-text-generator -->
+				</header>
+				<div class="home-intro">
+					Design a roguish rocket and try to get into space.
+				</div>
+				<div data-command="goto spaceCenter" class="button">
+					[<span class="key">Enter</span>] Enter the Rerbal Space Center
+				</div>
+				<div class="home-details">
+					[X] Made for 7DRL 2023 [X] Random winds, [X] Start over after destruction, [X] Turn-based,
+					[X] Resources to manage, [X] Single player, [X] Lots of Numbers,
+					[X] Keyboard controls,
+					[X] Less functionality than KSP1 Alpha,
+					[X] Worse framerate than the KSP2 EA launch
+				</div>
+			</article>
+			<article class="page" id="space-center-page">
+				Rerbal Space Center
+				<div style="display:none">
+					Science: <span class="researchPoints"></span>
+				</div>
+				<ul id="building-list"></ul>
+			</article>
+			<article class="page" id="research-page">
+				Research
+				<dl id="research-parts-list"></dl>
+				<footer>
+					<div class="button" data-command="goto spaceCenter">
+						[<span class="key">Enter</span>] Done
+					</div>
+				</footer>
+			</article>
+			<article class="page" id="vab-page">
+				<header>
+					VAB
+				</header>
+				<div class="page-body">
+					<section id="vab-parts">
+						Parts
+						<ul id="vab-parts-list"></ul>
+						<div data-command="clear vab" class="button">[<span class="key">Backspace</span>] Clear</div>
+					</section>
+					<section id="vab-rocket">
+						Rocket
+						<div class="vab-rocket-container">
+							<ul id="vab-rocket-list"></ul>
+							<svg id="vab-rocket-svg" xmlns="http://www.w3.org/2000/svg" version="1.1"
+								viewBox="0 0 60 600">
+								<g id="vab-rocket-svg-group">
+								</g>
+							</svg>
+						</div>
+					</section>
+					<section id="vab-rocket-info">
+						<ul>
+							<li>Mass: <span id="vab-rocket-mass-value">-</span></li>
+							<!-- <li>Complexity: <span id="vab-rocket-complexity-value">-</span></li> -->
+							<li>Control: <span id="vab-rocket-control-value">-</span></li>
+							<li>Steering: <span id="vab-rocket-steering-value">-</span></li>
+						</ul>
+						<div data-command="goto spaceCenter" class="button">
+							[<span class="key">Esc</span>] Exit
+						</div>
+						<div data-command="goto flight" class="button">
+							[<span class="key">Enter</span>] Launch
+						</div>
+					</section>
+				</div>
+			</article>
+			<article class="page" id="flight-page">
+				<header>
+					<div>Flight</div>
+				</header>
+				<div class="page-body">
+					<section id="flight-rocket">
+						<svg id="flight-rocket-svg" xmlns="http://www.w3.org/2000/svg" version="1.1"
+							viewBox="0 0 60 600">
+							<g id="flight-rocket-svg-group">
+							</g>
+						</svg>
+					</section>
+					<section id="flight-progress">
+						<div id="flight-map-container">
+							<svg id="flight-map-svg" xmlns="http://www.w3.org/2000/svg" version="1.1"
+								viewBox="0 0 10 10">
+								<g id="flight-map-world-group">
+									<circle cx="0" cy="0" r="200" id="atmosphere-circle" />
+									<circle cx="0" cy="0" r="100" id="planet-circle" />
+									<text  style="font-size: 10000px; transform: scale(10) rotate(90deg) translate(-35853px, 0);">Planet Rerbin</text>
+									<g id="flight-map-path-group">
 
+									</g>
+									<g id="flight-map-trajectory-group">
+										
+									</g>
+									<g id="flight-map-rocket-group">
+										<circle cx="0" cy="0" r="100" id="flight-map-rocket-dot" class="flight-map-dot" />
+										<path d="M 0 -1000 L 0 1000 L 2000 0 Z" />
+									</g>
+								</g>
+							</svg>
+						</div>
+						<div id="flight-altitude">
+							Altitude: <span id="flight-altitude-value">-</span>
+						</div>
+						<div id="flight-time">Time: <span id="flight-time-value">-</span></div>
+						<div id="flight-telemetry-container">
+							<svg id="flight-telemetry-svg" xmlns="http://www.w3.org/2000/svg" version="1.1"
+								viewBox="0 0 100 100">
+								<g style="transform: translate(50px, 50px)">
+									
+									<g style="transform: rotate(45deg)" id="navball-group">
+										<circle cx="0" cy="0" r="40" class="navball-circle" />
+										<path d="M -40 1 L 40 1" class="ground" />
+										<path d="M 0 0 L 0 10" class="ground" />
+										<path d="M -40 -1 L 40 -1" class="sky" />
+										<path d="M 0 0 L 0 -10 l -2 2 M 0 -10 l 2 2" class="sky" />
+										<text id="navball-ground-text" class="ground">ground</text>
+									</g>
+									<path id="navball-velocity-arrow" style="transform: rotate(45deg)" d="M 0 -20 l 0 -10 l -3 3 m 3 -3 l 3 3" />
+									<!-- <path id="navball-thrust-arrow" style="transform: rotate(45deg)" d="M 0 -20 l 0 -10 l -3 3 m 3 -3 l 3 3" /> -->
+									<!-- <rect x="-15" y="-40" rx="4" ry="4" width="30" height="10" fill="#111" /> -->
+								</g>
+								<!-- Nav ball, throttle, heading (angle), speed, g-forces -->
+							</svg>
+							<div id="flight-telemetry-rotation">Rotation: <span id="flight-rotation-value"></span>&deg;</div>
+							<div id="flight-telemetry-speed">Speed: <span id="flight-speed-value"></span>m/s</div>
+						</div>
+					</section>
+					<section id="flight-info">
+						<div id="flight-info-dump"></div>
+						<div>Total Fuel: <span id="flight-rocket-total-fuel-value">-</span></div>
+						<div>Mass: <span id="flight-rocket-mass-value">-</span></div>
+						<dl>
+							<div>
+								<dt>Control:</dt>
+								<dd><span id="flight-control-value">-</span> (+1/turn)</dd>
+							</div>
+							<div>
+								<dt>Steering:</dt>
+								<dd><span id="flight-steering-value">-</span></dd>
+							</div>
+						</dl>
+						<ul id="flight-command-list">
+							<li>
+								<span data-command="steer left">[<span class="key">a</span>] Steer Left</span> /
+								<span data-command="steer right">Steer Right [<span class="key">d</span>]</span>
+							</li>
+							<li>
+								<span data-command="zoom in">[<span class="key">+</span>] Zoom In</span> /
+								<span data-command="zoom out">Zoom Out [<span class="key">-</span>]</span>
+							</li>
+							<li data-command="autoAdvance toggle">[<span class="key">Tab</span>] Toggle Auto-Advance</li>
+							<li data-command="activate stage">[<span class="key">Space</span>] Launch / Activate Next Stage (Cost: 10 control)</li>
+						</ul>
+						<div id="flight-destroyed">
+							Destroyed!
+							[<span class="key">Esc</span>] Leave
+						</div>
+						<footer>
+							<div data-command="advance turn" class="button">
+								[<span class="key">Enter</span>] Advance Turn (+1 second)
+							</div>
+						</footer>
+					</section>
+				</div>
+			</article>
 		</main>
 		<script type="module" src="build/game_bundle.js"></script>
 	</body>
