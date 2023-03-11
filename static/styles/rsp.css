@@ -10,6 +10,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Courier New', Courier, monospace;
+	font-size: calc(11px + 1vmin);
 }
 .apple-ii-font {
 	font-family: 'AppleII', 'Courier New', Courier, monospace;
@@ -82,6 +83,10 @@ main {
 	display: block;
 	padding: 2em 1em;
 	border: solid 1px transparent;
+}
+
+.building-name {
+	font-size: 120%;
 }
 
 #building-list {
@@ -211,6 +216,12 @@ main {
 	height: calc(94vh - 2em);
 	width: 30vmin;
 	background: rgba(0,0,0,0.5);
+}
+
+#flight-rocket-stats {
+	position: absolute;
+	bottom: 0;
+	padding: 1em;
 }
 
 .flight-fuel-text {
@@ -357,7 +368,7 @@ svg {
 	user-select: none;
 }
 #flight-command-list > li {
-	padding: 1.5em 0;
+	padding: 1.25em 0;
 }
 
 #flight-destroyed {

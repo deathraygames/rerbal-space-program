@@ -108,7 +108,7 @@ const states = {
 					return (
 						`<li class="${classes.join(' ')}" data-command="goto ${building.goto}">
 							[<span class="key">${building.key}</span>]
-							- ${building.name} - ${building.description}
+							<span class="building-name">${building.name}</span> - ${building.description}
 						</li>`
 					);
 				}).join('')

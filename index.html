@@ -26,7 +26,7 @@
  /___/ .__/\_,_/\__/\__/ /_/  /_/  \___/\_, /_/  \_,_/_/_/_/
     /_/                                /___/        
  
-                                      version 1.0 ☿ "Mercury"
+                                   version 1.0.1 ☿ "Mercury"
 </pre>
 <!-- 	Big
 	Chunky
@@ -113,6 +113,10 @@
 							<g id="flight-rocket-svg-group">
 							</g>
 						</svg>
+						<div id="flight-rocket-stats">
+							<div>Total Fuel: <span id="flight-rocket-total-fuel-value">-</span></div>
+							<div>Mass: <span id="flight-rocket-mass-value">-</span></div>
+						</div>
 					</section>
 					<section id="flight-progress">
 						<div id="flight-map-container">
@@ -164,8 +168,6 @@
 					</section>
 					<section id="flight-info">
 						<div id="flight-info-dump"></div>
-						<div>Total Fuel: <span id="flight-rocket-total-fuel-value">-</span></div>
-						<div>Mass: <span id="flight-rocket-mass-value">-</span></div>
 						<dl>
 							<div>
 								<dt>Control:</dt>
@@ -192,11 +194,12 @@
 							Destroyed!
 							[<span class="key">Esc</span>] Leave
 						</div>
-						<footer>
-							<div data-command="advance turn" class="button">
-								[<span class="key">Enter</span>] Advance Turn (+1 second)
-							</div>
-						</footer>
+						<div data-command="advance turn" class="button">
+							[<span class="key">Enter</span>] Advance Turn (+1 second)
+						</div>
+						<div data-command="goto spaceCenter" class="button">
+							[<span class="key">Esc</span>] Exit
+						</div>
 					</section>
 				</div>
 			</article>
