@@ -27,8 +27,9 @@ class Game {
 			this.kbCommander = new KeyboardCommander({}, { command: (c) => this.handleCommand(c) });
 			this.switchState(this.stateKey);
 			window.document.addEventListener('click', (event) => {
-				if (event.target.dataset.command) {
-					this.handleCommand(event.target.dataset.command);
+				const commandElt = event.target.closest('[data-command]');
+				if (commandElt && commandElt.dataset.command) {
+					this.handleCommand(commandElt.dataset.command);
 					event.preventDefault();
 				}
 			});
